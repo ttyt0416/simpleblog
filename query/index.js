@@ -34,8 +34,7 @@ const handleEvent = (type, data) => {
     comment.status = status;
     comment.content = content;
   }
-
-}
+};
 
 app.get('/posts', (req, res) => {
   res.send(posts);
@@ -55,7 +54,7 @@ app.listen(4002, async () => {
   const res = await axios.get('http://localhost:4005/events');
 
   for (let event of res.data) {
-    console.log('Propcessing event:', event.type)
+    console.log('Processing event:', event.type);
 
     handleEvent(event.type, event.data);
   }
